@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1078965242879",
+    "project_id": "flutter-template-noti",
+    "storage_bucket": "flutter-template-noti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078965242879:android:f5715684c4d09f3c48f5ca",
+        "android_client_info": {
+          "package_name": "com.example.flutter_template"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx6zgP4VN9euQNvLDK-o5HMx_T2OXU6l8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
