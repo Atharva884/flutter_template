@@ -32,7 +32,7 @@ class AppSizes {
   // Default spacing between sections
   static const double defaultSpace = 24.0;
   static const double spaceBtwItems = 16.0;
-  static const double spaceBtwSections = 40.0;
+  static const double spaceBtwSections = 36.0;
 
   // Border radius
   static const double borderRadiusSm = 4.0;
@@ -49,7 +49,7 @@ class AppSizes {
 
   // Input field
   static const double inputFieldRadius = 12.0;
-  static const double spaceBtwInputFields = 20.0;
+  static const double spaceBtwInputFields = 28.0;
 
   // Card sizes
   static const double cardRadiusLg = 16.0;

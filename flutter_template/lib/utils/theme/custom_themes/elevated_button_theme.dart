@@ -11,7 +11,7 @@ class TEleveatedButtonTheme {
       disabledBackgroundColor: Colors.grey,
       disabledForegroundColor: Colors.grey,
       side: const BorderSide(color: AppColors.primary),
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       textStyle: const TextStyle(
           fontSize: 18, color: Colors.black, fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(
@@ -29,7 +29,7 @@ class TEleveatedButtonTheme {
       disabledBackgroundColor: Colors.grey,
       disabledForegroundColor: Colors.grey,
       side: const BorderSide(color: AppColors.primary),
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       textStyle: const TextStyle(
         fontSize: 20,
         color: Colors.black,

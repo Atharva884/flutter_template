@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/utils/constants/app_colors.dart';
 
 class TTextFormFieldTheme {
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
     errorMaxLines: 3,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
-    labelStyle:
-        const TextStyle().copyWith(fontSize: 8, color: AppColors.primary),
+    labelStyle: const TextStyle().copyWith(fontSize: 16, color: Colors.grey),
     hintStyle: const TextStyle().copyWith(fontSize: 16, color: Colors.grey),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
-    contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+    contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
     floatingLabelStyle:
         const TextStyle().copyWith(color: Colors.black.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
@@ -39,11 +37,10 @@ class TTextFormFieldTheme {
     errorMaxLines: 3,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
-    labelStyle:
-        const TextStyle().copyWith(fontSize: 8, color: AppColors.primary),
+    labelStyle: const TextStyle().copyWith(fontSize: 16, color: Colors.grey),
     hintStyle: const TextStyle().copyWith(fontSize: 16, color: Colors.grey),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
-    contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+    contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
     floatingLabelStyle:
         const TextStyle().copyWith(color: Colors.white.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(

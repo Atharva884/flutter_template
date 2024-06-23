@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_template/pages/auth/sign_up.dart';
 import 'package:flutter_template/utils/constants/app_colors.dart';
 import 'package:flutter_template/utils/constants/image_strings.dart';
 import 'package:flutter_template/utils/constants/sizes.dart';
 import 'package:flutter_template/utils/helpers/helper.dart';
+import 'package:flutter_template/widgets/divider.dart';
+import 'package:flutter_template/widgets/social_icons.dart';
 
 class SignInPage extends ConsumerStatefulWidget {
   const SignInPage({super.key});
@@ -43,7 +46,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 image: AssetImage(
                   isDarkMode ? AppImages.lightAppLogo : AppImages.darkAppLogo,
                 ),
-                height: 100,
+                height: 120,
               ),
 
               const SizedBox(
@@ -78,10 +81,18 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 child: Column(
                   children: [
                     TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "E-mail is required";
+                        } else if (Helper.emailRegex.hasMatch(value) == false) {
+                          return "Provide valid email address";
+                        }
+                        return null;
+                      },
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
-                        hintText: "E-mail",
+                        labelText: "E-mail",
                         prefixIcon: Icon(CupertinoIcons.mail),
                       ),
                     ),
@@ -89,10 +100,16 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                       height: AppSizes.spaceBtwInputFields,
                     ),
                     TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Password is required";
+                        }
+                        return null;
+                      },
                       controller: _passwordController,
                       obscureText: !hidePass ? true : false,
                       decoration: InputDecoration(
-                        hintText: "Password",
+                        labelText: "Password",
                         prefixIcon: const Icon(CupertinoIcons.padlock),
                         suffixIcon: IconButton(
                           onPressed: () {
@@ -151,7 +168,11 @@ class _SignInPageState extends ConsumerState<SignInPage> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      // Perform sign in
+                    }
+                  },
                   child: const Text(
                     "Sign In",
                   ),
@@ -163,7 +184,14 @@ class _SignInPageState extends ConsumerState<SignInPage> {
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => const SignUpPage(),
+                      ),
+                    );
+                  },
                   child: const Text(
                     "Create Account",
                   ),
@@ -175,71 +203,14 @@ class _SignInPageState extends ConsumerState<SignInPage> {
               ),
 
               // Divider
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    child: Divider(
-                      color: isDarkMode ? AppColors.darkGrey : AppColors.grey,
-                      indent: 50,
-                      endIndent: 10,
-                      thickness: 0.5,
-                    ),
-                  ),
-                  Text(
-                    "Or Sign In With",
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  Flexible(
-                    child: Divider(
-                      color: isDarkMode ? AppColors.darkGrey : AppColors.grey,
-                      indent: 10,
-                      endIndent: 50,
-                      thickness: 0.5,
-                    ),
-                  ),
-                ],
-              ),
+              const CustomDivider(),
 
               const SizedBox(
                 height: AppSizes.spaceBtwSections,
               ),
 
               // Social Media Icons
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.grey),
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Image(
-                        width: AppSizes.iconMd,
-                        height: AppSizes.iconMd,
-                        image: AssetImage(AppImages.googleIcon),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: AppSizes.spaceBtwItems),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.grey),
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Image(
-                        width: AppSizes.iconMd,
-                        height: AppSizes.iconMd,
-                        image: AssetImage(AppImages.facebookIcon),
-                      ),
-                    ),
-                  ),
-                ],
-              )
+              const SocialIcons(),
             ],
           ),
         ),

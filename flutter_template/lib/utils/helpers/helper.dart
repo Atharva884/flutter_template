@@ -6,6 +6,15 @@ import '../constants/app_colors.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class Helper {
+  // Regex
+  static RegExp emailRegex = RegExp(
+    r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+  );
+
+  static RegExp phoneRegex = RegExp(
+    r'^[0-9]{10}$',
+  );
+
   // Convert date to formatted date
   static String convertToFormattedDate(String dateString) {
     DateTime dateTime = DateTime.parse(dateString);
